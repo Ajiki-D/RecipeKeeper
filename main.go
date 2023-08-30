@@ -2,10 +2,13 @@ package main
 
 import (
 	"net/http"
-	"github.com/Ajiki-D/REcipekeeper/Handlers"
+	"recipekeeper/data"
+	"recipekeeper/Handlers"
 )
 
 func main() {
+	data.FetchAllRecipes()
+	//fmt.PrintLn(data.AllRecipes)
 http.HandleFunc("/", Handlers.HomePage)
 http.ListenAndServe(":8000", nil)
 
